@@ -11,11 +11,16 @@ using namespace std;
 int main() {
 
     cout << "Hello World !" << endl;
-   
 
+    Server test;
+    Server test3(test);
 
- 
-    
+    Server test2 = test;
+
+    test.consoleWrite();
+    test2.consoleWrite();
+    test3.consoleWrite();
+
     return 0;
 }
 
@@ -37,17 +42,17 @@ int main() {
 
 //     string const fichierNotes("/media/enzo/DATA/Commun DATA (D)/c++/HelloWorld/fichiers/notes.txt");
 
-//     ifstream fluxNotesLecture(fichierNotes.c_str()); //  le 2ème paramètre "append", verbe anglais qui signifie "ajouter à la fin".
+    // ifstream fluxNotesLecture(fichierNotes.c_str()); //  le 2ème paramètre "append", verbe anglais qui signifie "ajouter à la fin".
 
-//     if(fluxNotesLecture) { //On teste si tout est OK
+    // if(fluxNotesLecture) { //On teste si tout est OK
 
-//         string ligne;
+    //     string ligne;
 
 //         while(getline(fluxNotesLecture, ligne)) { //Tant qu'on n'est pas à la fin, on lit
 
 //             cout << ligne << endl;
 
-//             double mydouble = stod(ligne);
+    //         double mydouble = stod(ligne);
 
 //             arrayNotes.push_back(mydouble);
 //         }
