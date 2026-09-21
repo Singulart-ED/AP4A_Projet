@@ -1,5 +1,9 @@
 #include "Server.hpp"
 #include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
 
 Server::Server()
 {
@@ -17,22 +21,28 @@ Server::~Server()
     std::cout << "Destruction du serveur\n";
 };
 
-
-Server& Server::operator=(const Server& b)
+  
+  
+  Server& Server::operator=(const Server& b)
 {
     return *this;
 }
 
-
-void Server::consoleWrite()
+void Server::consoleWrite(float temperature, double light, double humidite, double son)
 {
-    std::cout << "Donnee recue\n";
+    cout << temperature << ";" << light << ";" << humidite << ";" << son << ";" << endl;
+    cout << "Ecriture effectuee\n";
 };
 
 
-void Server::fileWrite()
-{
-    std::cout << "Ecriture en cours\n";
-
-
+void Server::fileWrite(float temperature, double light, double humidite, double son){
+    //Temperature
+    string const fichierNotes("../log.csv");
+    ofstream monFlux(fichierNotes.c_str(), ios::app);
+    if (monFlux) {
+        monFlux << temperature << ";" << light << ";" << humidite << ";" << son << ";" << endl;
+        cout << "Ecriture effectuee\n";
+    }else {
+        cout << "Erreur lors de l'ouverture du fichier de temperature\n";
+    }
 };
