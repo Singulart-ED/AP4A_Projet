@@ -5,7 +5,11 @@ class Server
 {
     public:
         Server();
+        Server(const Server& b);
+
         ~Server();
+
+        Server& operator=(const Server& b);
 
         void consoleWrite();
         void fileWrite();

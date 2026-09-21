@@ -6,12 +6,22 @@ Server::Server()
     std::cout << "Creation du serveur\n";
 };
 
+Server::Server(const Server& b)
+{
+    std::cout << "Creation du serveur a l aide d'un autre serveur\n";
+};
 
 
 Server::~Server()
 {
     std::cout << "Destruction du serveur\n";
 };
+
+
+Server& Server::operator=(const Server& b)
+{
+    return *this;
+}
 
 
 void Server::consoleWrite()
