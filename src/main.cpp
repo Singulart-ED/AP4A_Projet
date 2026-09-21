@@ -3,7 +3,7 @@
 #include <string>
 #include <vector> //Pour les tableaus dynamiques
 // #include <fstream> // Pour les écrire dans les fichiers
-#include "server.hpp"
+#include "Server.hpp"
 
 using namespace std;
 
