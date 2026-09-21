@@ -9,7 +9,7 @@ class Server
 
         ~Server();
 
-        Server& operator=(const Server& b);
+        Server& operator=(const Server& b); 
 
         void consoleWrite();
         void fileWrite();
