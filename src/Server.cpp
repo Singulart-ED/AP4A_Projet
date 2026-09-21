@@ -25,6 +25,12 @@ Server::~Server()
   
   Server& Server::operator=(const Server& b)
 {
+
+    if (this != &b) 
+    {
+        std::cout << "Creation d'un nouveau serveur par recopie" << std::endl;
+    }
+
     return *this;
 }
 
