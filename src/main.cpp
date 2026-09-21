@@ -10,7 +10,6 @@ using namespace std;
 
 int main() {
 
-
     cout << "Hello World !" << endl;
    
 
@@ -45,14 +44,14 @@ int main() {
 //         string ligne;
 
 //         while(getline(fluxNotesLecture, ligne)) { //Tant qu'on n'est pas à la fin, on lit
-        
+
 //             cout << ligne << endl;
 
 //             double mydouble = stod(ligne);
 
 //             arrayNotes.push_back(mydouble);
 //         }
-    
+
 //     } else {
 
 //         cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
