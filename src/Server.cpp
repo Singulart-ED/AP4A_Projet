@@ -37,7 +37,7 @@ Server::~Server()
 void Server::consoleWrite(float temperature, double light, double humidite, double son)
 {
     cout << temperature << ";" << light << ";" << humidite << ";" << son << ";" << endl;
-    cout << "Ecriture effectuee\n";
+    cout << "donnees recues\n";
 };
 
 
