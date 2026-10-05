@@ -18,6 +18,7 @@ Sensor::Sensor(const Sensor &s)
     m_type(s.m_type);
     m_ptrServer = new Server;
     *m_ptrServer = *s.m_ptrServer;
+    // m_id++;
 }
 
 Sensor::~Sensor()

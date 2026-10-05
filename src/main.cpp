@@ -4,22 +4,25 @@
 #include <vector> //Pour les tableaus dynamiques
 // #include <fstream> // Pour les écrire dans les fichiers
 #include "Server.hpp"
+#include "Sensor.h"
 
 using namespace std;
 
 
 int main() {
 
-    cout << "Hello World !" << endl;
+    // cout << "Hello World !" << endl;
 
-    Server test;
-    Server test3(test);
+    // Server test;
+    // Server test3(test);
 
-    Server test2 = test;
+    // Server test2 = test;
 
-    test.consoleWrite();
-    test2.consoleWrite();
-    test3.consoleWrite();
+    // test.consoleWrite();
+    // test2.consoleWrite();
+    // test3.consoleWrite();
+
+    Sensor s;
  
     
     return 0;

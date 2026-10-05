@@ -9,11 +9,10 @@
 class Sensor{
 
     private :
-        Data m_d();
+        D m_data();
         Server *m_ptrServer();
         Time m_time();
         std::String m_type();
-
 
     public:
         static int m_id();
@@ -21,7 +20,7 @@ class Sensor{
         Sensor();
         Sensor(const Sensor& s);
         ~Sensor();
-        
+
         Sensor& operator=(const Sensor& b); 
         Sensor& update(Time t);
         void execute(); 
