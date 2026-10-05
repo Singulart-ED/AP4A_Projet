@@ -8,6 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(PROJET_TP
     src/main.cpp
     src/Server.cpp
-
+    src/Sensor.cpp
+    src/Scheduler.cpp
 )
-
