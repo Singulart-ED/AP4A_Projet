@@ -1,0 +1,8 @@
+//
+// Created by Yann on 19/10/2026.
+//
+
+#ifndef PROJET_TP_TEMPERATURE_H
+#define PROJET_TP_TEMPERATURE_H
+
+#endif //PROJET_TP_TEMPERATURE_H
