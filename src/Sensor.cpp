@@ -1,6 +1,7 @@
 #include "Sensor.h"
 #include "Server.hpp"
 #include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -8,7 +9,7 @@ using namespace std;
 template <typename V>
 Sensor<V>::Sensor()
 {
-    value();
+    value = V{};
     m_ptrServer = nullptr;
     timestamp = 0;
     m_period = 0;
@@ -19,7 +20,7 @@ Sensor<V>::Sensor()
 template <typename V>
 Sensor<V>::Sensor(const Sensor &s)
 {
-    value(s.value);
+    value = s.value;
     timestamp = s.timestamp;
     m_period = s.m_period;
     m_type = s.m_type;
@@ -72,3 +73,8 @@ void Sensor<V>::execute()
     std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;
 
 }
+
+
+template class Sensor<int>;
+template class Sensor<float>;
+template class Sensor<bool>;

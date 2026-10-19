@@ -23,6 +23,7 @@ int main() {
     // test3.consoleWrite();
 
     Sensor<int> s;
+    s.execute();
  
     
     return 0;
