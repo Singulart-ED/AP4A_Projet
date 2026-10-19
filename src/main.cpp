@@ -10,6 +10,11 @@ using namespace std;
 
 
 int main() {
+    Scheduler scheduler;
+    while (1) {
+        scheduler.simuation();
+    }
+}
 
     // cout << "Hello World !" << endl;
 
