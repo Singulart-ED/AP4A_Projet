@@ -15,6 +15,7 @@ class Sensor{
         V value;
         Server* m_ptrServer;
         time_t timestamp;
+        time_t m_period;
         std::string m_type;
 
     public:
@@ -25,7 +26,7 @@ class Sensor{
         ~Sensor();
 
         Sensor& operator=(const Sensor& b); 
-        void update(time_t t);
+        void update(time_t t); // appelle execute
         void execute(); 
 
 };
