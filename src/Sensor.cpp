@@ -71,6 +71,7 @@ void Sensor<V>::execute()
     value = static_cast<V>(std::rand() % 101);
 
     std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;
+    
 
 }
 
