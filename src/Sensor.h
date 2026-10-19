@@ -4,31 +4,33 @@
  
 #include <iostream>
 #include <string>
+#include <ctime>
+#include "Server.hpp"
 
 
+template <typename V>
 class Sensor{
 
-    private :
-        D m_data();
-        Server *m_ptrServer();
-        Time m_time();
-        std::String m_type();
+    private:
+        V value;
+        Server* m_ptrServer;
+        time_t timestamp;
+        std::string m_type;
 
     public:
-        static int m_id();
+        static int m_id;
 
         Sensor();
         Sensor(const Sensor& s);
         ~Sensor();
 
         Sensor& operator=(const Sensor& b); 
-        Sensor& update(Time t);
+        void update(time_t t);
         void execute(); 
-        
 
 };
 
-int Sensor::m_id = 0;
-
+template <typename V>
+int Sensor<V>::m_id = 0;
 
 #endif //PROJET_TP_SENSOR_H

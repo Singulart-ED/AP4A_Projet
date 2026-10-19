@@ -7,14 +7,14 @@ Sensor::Sensor()
 {
     m_d();
     m_ptrServer(nullptr);
-    m_time();
+    timestamp();
     m_type();
 }
 
 Sensor::Sensor(const Sensor &s)
 {
     m_d(s.m_d);
-    m_time(s.m_time);
+    timestamp(s.timestamp);
     m_type(s.m_type);
     m_ptrServer = new Server;
     *m_ptrServer = *s.m_ptrServer;
