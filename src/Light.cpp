@@ -32,3 +32,7 @@ void Light::update(time_t t) {
 void Light::execute() {
     std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 }
+
+bool getVal() {
+    return value;
+}

@@ -5,6 +5,7 @@
 #include "Temperature.h"
 #include <cstdlib>
 #include <iostream>
+#include <bits/locale_facets_nonio.h>
 
 Temperature::Temperature() : Sensor<int>() {
     m_type = "Temperature";
@@ -32,4 +33,8 @@ void Temperature::update(time_t t) {
 
 void Temperature::execute() {
     std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
+}
+
+int getVal() {
+    return value;
 }

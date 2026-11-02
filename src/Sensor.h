@@ -12,6 +12,8 @@ template <typename V>
 class Sensor{
 
     protected:
+        int id;
+        std::string type;
         V value;
         Server* m_ptrServer;
         time_t timestamp;
@@ -26,9 +28,11 @@ class Sensor{
         virtual ~Sensor();
 
         Sensor& operator=(const Sensor& b); 
-        virtual void update(time_t t) = 0; // appelle execute
+        virtual void update(time_t t) = 0;
         virtual void execute() = 0;
 
+        int getId() const { return id; }
+        std::string getType() const { return type; }
 };
 
 template <typename V>

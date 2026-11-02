@@ -1,6 +1,10 @@
 #ifndef SERVER_H
 #define SERVER_H
 
+#include "Temperature.h"
+#include "Sound.h"
+#include "Humidity.h"
+#include "Light.h"
 
 class Server{
     public:
@@ -10,8 +14,8 @@ class Server{
         ~Server();
         Server& operator=(const Server& b); 
 
-        void consoleWrite(float temperature, double light, double humidite, double son);
-        void fileWrite(float Temperature, double light, double humidity, double son);
+        void consoleWrite(Temperature temperature, Light light, Humidity humidite, Sound son);
+        void fileWrite(Temperature temperature, Light light, Humidity humidite, Sound son);
 };
 
 #endif // SERVER_H

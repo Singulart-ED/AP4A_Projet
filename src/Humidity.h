@@ -11,12 +11,14 @@
 class Humidity : public Sensor<float>{
 public:
     Humidity();
-    ~Humidity() override;
+    ~Humidity();
     Humidity & operator=(const Humidity& h);
     Humidity(const Humidity& h);
 
-    void update(time_t t) override; // appelle execute
-    void execute() override;
+    void update(time_t t); // appelle execute
+    void execute();
+
+    float getVal();
 };
 
 #endif //PROJET_TP_HUMIDITY_H

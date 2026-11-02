@@ -10,12 +10,14 @@
 class Temperature : public Sensor<int>{
 public:
     Temperature();
-    ~Temperature() override;
+    ~Temperature();
     Temperature & operator=(const Temperature& t);
     Temperature(const Temperature& t);
 
-    void update(time_t t) override; // appelle execute
-    void execute() override;
+    void update(time_t t); // appelle execute
+    void execute();
+
+    int getVal();
 };
 
 

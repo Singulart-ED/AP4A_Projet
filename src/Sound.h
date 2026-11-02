@@ -9,12 +9,14 @@
 class Sound : public Sensor<float>{
 public:
     Sound();
-    ~Sound() override;
+    ~Sound();
     Sound & operator=(const Sound& s);
     Sound(const Sound& s);
 
-    void update(time_t t) override; // appelle execute
-    void execute() override;
+    void update(time_t t); // appelle execute
+    void execute();
+
+    float getVal();
 };
 
 

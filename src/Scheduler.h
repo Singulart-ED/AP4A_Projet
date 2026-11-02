@@ -5,21 +5,50 @@
 #ifndef PROJET_TP_SCHEDULER_H
 #define PROJET_TP_SCHEDULER_H
 
+#include <vector>
 #include "Sensor.h"
 
+template <typename T>
 class Scheduler {
-    public:
-        Scheduler();
+protected:
+    std::vector<Sensor<T>*> arrayV;
 
-        Scheduler(const Scheduler& s);
+public:
+    Scheduler() {}
 
-        ~Scheduler();
+    Scheduler(const Scheduler<T>& s) {
+        for (Sensor<T>* sensor : s.arrayV) {
+            this->arrayV.push_back(sensor);
+        }
+    }
 
-        void operator = (const Scheduler& s);
+    ~Scheduler() {
+        arrayV.clear();
+    }
 
-        void simuation();
+    Scheduler<T>& operator=(const Scheduler<T>& s) {
+        if (this != &s) {
+            this->arrayV.clear();
+            for (Sensor<T>* sensor : s.arrayV) {
+                this->arrayV.push_back(sensor);
+            }
+        }
+        return *this;
+    }
 
-        void addSensor(Sensor s);
+    void simulation() {
+        for (Sensor<T>* sensor : arrayV) {
+            if (sensor != nullptr) {
+                sensor->update();
+            }
+        }
+    }
+
+    void addSensor(Sensor<T>* s) {
+        if (s != nullptr) {
+            this->arrayV.push_back(s);
+        }
+    }
 };
 
 #endif //PROJET_TP_SCHEDULER_H
