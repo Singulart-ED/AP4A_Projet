@@ -11,7 +11,7 @@
 template <typename V>
 class Sensor{
 
-    protected:
+    private:
         V value;
         Server* m_ptrServer;
         time_t timestamp;
@@ -23,11 +23,11 @@ class Sensor{
 
         Sensor();
         Sensor(const Sensor& s);
-        virtual ~Sensor();
+        ~Sensor();
 
         Sensor& operator=(const Sensor& b); 
-        virtual void update(time_t t) = 0; // appelle execute
-        virtual void execute() = 0;
+        void update(time_t t); // appelle execute
+        void execute(); 
 
 };
 
