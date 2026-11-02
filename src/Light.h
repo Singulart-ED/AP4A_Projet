@@ -7,16 +7,16 @@
 
 #include "Sensor.h"
 
-class Light : public Sensor{
-    private:
-    bool value;
-    public:
+class Light : public Sensor<bool> {
+public:
     Light();
-    ~Light();
-    Light & operator=(const Light& l);
-    Light(const Light&);
-};
+    ~Light() override;
+    Light& operator=(const Light& l);
+    Light(const Light& l);
 
+    void update(time_t t) override;
+    void execute() override;
+};
 
 
 #endif //PROJET_TP_LIGHT_H

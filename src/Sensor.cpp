@@ -47,28 +47,3 @@ Sensor<V>& Sensor<V>::operator=(const Sensor<V> &b)
 
     return *this;
 }
-
-
-
-template <typename V>
-void Sensor<V>::update(time_t t)
-{
-
-    if (t - timestamp >= m_period)
-    {
-        execute();
-        timestamp = t;
-    }
-
-}
-
-
-template <typename V>
-void Sensor<V>::execute()
-{
-
-    value = static_cast<V>(std::rand() % 101);
-
-    std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;
-
-}
