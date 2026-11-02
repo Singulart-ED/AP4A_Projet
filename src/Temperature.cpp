@@ -29,6 +29,7 @@ void Temperature::update(time_t t) {
     }
 }
 
+
 void Temperature::execute() {
     std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 }

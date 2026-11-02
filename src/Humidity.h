@@ -8,7 +8,6 @@
 
 #include "Sensor.h"
 
-
 class Humidity : public Sensor<float>{
 public:
     Humidity();
