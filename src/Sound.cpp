@@ -32,3 +32,7 @@ void Sound::update(time_t t) {
 void Sound::execute() {
     std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 }
+
+float getVal() {
+    return value;
+}

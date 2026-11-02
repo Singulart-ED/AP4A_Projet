@@ -34,3 +34,7 @@ void Humidity::update(time_t t) {
 void Humidity::execute() {
     std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 }
+
+float getVal() {
+    return value;
+}

@@ -10,12 +10,14 @@
 class Light : public Sensor<bool> {
 public:
     Light();
-    ~Light() override;
+    ~Light();
     Light& operator=(const Light& l);
     Light(const Light& l);
 
-    void update(time_t t) override;
-    void execute() override;
+    void update(time_t t);
+    void execute();
+
+    bool getVal();
 };
 
 #endif //PROJET_TP_LIGHT_H
