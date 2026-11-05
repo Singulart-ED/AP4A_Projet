@@ -28,8 +28,8 @@ class Sensor{
         virtual ~Sensor();
 
         Sensor& operator=(const Sensor& b); 
-        virtual void update(time_t t) = 0;
-        virtual void execute() = 0;
+        void update(time_t t); // appelle execute
+        void virtual execute() = 0; // à définir dans chaque classe fille et envoyer les données via un paramètre 
 
         int getId() const { return id; }
         std::string getType() const { return type; }
