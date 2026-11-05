@@ -6,7 +6,7 @@
 #define PROJET_TP_SCHEDULER_H
 
 #include <vector>
-#include "Sensor.h"
+#include "Sensor.hpp"
 
 template <typename T>
 class Scheduler {

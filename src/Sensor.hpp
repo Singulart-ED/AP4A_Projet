@@ -24,12 +24,17 @@ class Sensor{
         static int m_id;
 
         Sensor();
+        Sensor(&ptrServer, int period);
         Sensor(const Sensor& s);
         virtual ~Sensor();
 
         Sensor& operator=(const Sensor& b); 
         void update(time_t t); // appelle execute
-        void virtual execute() = 0; // à définir dans chaque classe fille et envoyer les données via un paramètre 
+
+
+        // void virtual execute() = 0; // à définir dans chaque classe fille et envoyer les données via un paramètre 
+        void execute(); // Pour tester
+        //////////////////////////
 
         int getId() const { return id; }
         std::string getType() const { return type; }

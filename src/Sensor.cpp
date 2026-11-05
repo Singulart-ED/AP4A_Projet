@@ -1,4 +1,4 @@
-#include "Sensor.h"
+#include "Sensor.hpp"
 #include "Server.hpp"
 #include <cstdlib>
 #include <iostream>
@@ -13,6 +13,16 @@ Sensor<V>::Sensor()
     m_ptrServer = nullptr;
     timestamp = 0;
     m_period = 0;
+    m_type = "";
+}
+
+template <typename V>
+Sensor<V>::Sensor(&ptrServer=nullptr, int period=0)
+{
+    value = V{};
+    m_ptrServer = ptrServer;
+    timestamp = 0;
+    m_period = period;
     m_type = "";
 }
 
@@ -65,7 +75,8 @@ void Sensor<V>::update(time_t t)
 template <typename V>
 void Sensor<V>::execute()
 {
-
+    srand(time(0));
+    
     value = static_cast<V>(std::rand() % 101);
 
     std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;

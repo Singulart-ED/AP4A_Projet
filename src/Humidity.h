@@ -6,7 +6,7 @@
 #define PROJET_TP_HUMIDITY_H
 #include <ctime>
 
-#include "Sensor.h"
+#include "Sensor.hpp"
 
 class Humidity : public Sensor<float>{
 public:
