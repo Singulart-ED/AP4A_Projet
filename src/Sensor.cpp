@@ -35,8 +35,6 @@ Sensor<V>::~Sensor()
     m_ptrServer = nullptr;
 }
 
-
-
 template <typename V>
 Sensor<V>& Sensor<V>::operator=(const Sensor<V> &b)
 {

@@ -11,7 +11,9 @@
 template <typename V>
 class Sensor{
 
-    private:
+    protected:
+        int id;
+        std::string type;
         V value;
         Server* m_ptrServer;
         time_t timestamp;
@@ -23,12 +25,14 @@ class Sensor{
 
         Sensor();
         Sensor(const Sensor& s);
-        ~Sensor();
+        virtual ~Sensor();
 
         Sensor& operator=(const Sensor& b); 
         void update(time_t t); // appelle execute
         void virtual execute() = 0; // à définir dans chaque classe fille et envoyer les données via un paramètre 
 
+        int getId() const { return id; }
+        std::string getType() const { return type; }
 };
 
 template <typename V>
