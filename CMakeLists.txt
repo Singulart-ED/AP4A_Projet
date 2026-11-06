@@ -10,4 +10,14 @@ add_executable(PROJET_TP
     src/Server.cpp
     src/Sensor.cpp
     src/Scheduler.cpp
+    src/Humidity.cpp
+
 )
+
+
+
+
+    # src/Humidity.cpp
+    # src/Light.cpp
+    # src/Sound.cpp
+    # src/Temperature.cpp

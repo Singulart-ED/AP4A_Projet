@@ -4,7 +4,7 @@
 
 #ifndef PROJET_TP_SOUND_H
 #define PROJET_TP_SOUND_H
-#include "Sensor.h"
+#include "Sensor.hpp"
 
 class Sound : public Sensor<float>{
 public:

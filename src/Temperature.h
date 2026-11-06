@@ -5,7 +5,7 @@
 #ifndef PROJET_TP_TEMPERATURE_H
 #define PROJET_TP_TEMPERATURE_H
 
-#include "Sensor.h"
+#include "Sensor.hpp"
 
 class Temperature : public Sensor<int>{
 public:

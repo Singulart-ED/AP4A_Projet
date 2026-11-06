@@ -5,7 +5,7 @@
 #ifndef PROJET_TP_LIGHT_H
 #define PROJET_TP_LIGHT_H
 
-#include "Sensor.h"
+#include "Sensor.hpp"
 
 class Light : public Sensor<bool> {
 public:

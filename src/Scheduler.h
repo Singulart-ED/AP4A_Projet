@@ -1,12 +1,8 @@
-//
-// Created by Yann on 05/10/2026.
-//
-
 #ifndef PROJET_TP_SCHEDULER_H
 #define PROJET_TP_SCHEDULER_H
 
 #include <vector>
-#include "Sensor.h"
+#include "Sensor.hpp"
 
 template <typename T>
 class Scheduler {
@@ -36,10 +32,10 @@ public:
         return *this;
     }
 
-    void simulation() {
+    void simulation(int t) {
         for (Sensor<T>* sensor : arrayV) {
             if (sensor != nullptr) {
-                sensor->update();
+                sensor->update(t);
             }
         }
     }

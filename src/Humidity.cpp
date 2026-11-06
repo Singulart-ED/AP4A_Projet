@@ -1,14 +1,18 @@
-//
-// Created by Yann on 19/10/2026.
-//
 
-#include "Humidity.h"
 #include <cstdlib>
 #include <iostream>
 
-Humidity::Humidity() : Sensor<float>() {
+#include "Humidity.h"
+#include "Server.hpp"
+
+Humidity::Humidity(int period, Server* ptrServer) : Sensor<float>(period, ptrServer) {
     m_type = "Humidity";
 }
+
+Humidity::Humidity(const Humidity& h) : Sensor<float>(h) {
+ // à faire
+}
+
 
 Humidity::~Humidity() {}
 
@@ -19,22 +23,22 @@ Humidity& Humidity::operator=(const Humidity& h) {
     return *this;
 }
 
-Humidity::Humidity(const Humidity& h) : Sensor<float>(h) {}
 
-// Retrait de "template <typename V>"
-void Humidity::update(time_t t) {
-    if (t - timestamp >= m_period) {
-        value = 30.0f + static_cast<float>(std::rand() % 500) / 10.0f;
-        execute();
-        timestamp = t;
-    }
-}
-
-// Retrait de "template <typename V>" et utilisation de "m_id"
 void Humidity::execute() {
-    std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
+
+    srand(time(0));
+    
+    value = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/100));
+
+    // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
+
+    m_ptrServer->consoleWrite();
+
 }
+
 
 float getVal() {
-    return value;
+    // return m_type;
+    // return value; // à modifier
+    return 0; // à modifier
 }
