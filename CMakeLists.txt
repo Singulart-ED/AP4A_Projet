@@ -14,4 +14,5 @@ add_executable(PROJET_TP
     src/Light.cpp
     src/Sound.cpp
     src/Temperature.cpp
+    src/SensorBase.hpp
 )

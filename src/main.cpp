@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector> //Pour les tableaus dynamiques
+#include <vector>
 #include "Server.hpp"
 #include "Sensor.hpp"
 #include "Scheduler.h"
@@ -9,93 +9,41 @@
 #include "Light.h"
 #include "Sound.h"
 #include "Temperature.h"
+#include "SensorBase.hpp"
 
 using namespace std;
 
 
 int main() {
 
-    Scheduler<int> scheduler;
+    Scheduler scheduler;
 
-    Server test;
+    Server server;
 
-    Humidity h1(1000, &test); //temps en milliseconde
-    Light l1(2000, &test); //temps en milliseconde
-    Sound s1(500, &test); //temps en milliseconde
-    Temperature t1(1000, &test); //temps en milliseconde
-    // h1.execute();
-    // l1.execute();
-    // s1.execute();
-    // t1.execute();
- 
-    h1.update(2); // METTRE LE THREAD EN PARALLELE
-    l1.update(2);
-    s1.update(2);
-    t1.update(2);
+    Humidity h1(1000, &server); //temps en milliseconde + le pointeur vers le serveur
+    Light l1(2000, &server); //temps en milliseconde + le pointeur vers le serveur
+    Sound s1(500, &server); //temps en milliseconde + le pointeur vers le serveur
+    Temperature t1(1000, &server); //temps en milliseconde + le pointeur vers le serveur
+   
+    scheduler.addSensor(&h1);
+    scheduler.addSensor(&l1);
+    scheduler.addSensor(&s1);
+    scheduler.addSensor(&t1);
 
-    // Sensor<int> s1(1000, &test); //temps en milliseconde
-    // Sensor<int> s2(2000, &test); //temps en milliseconde
-
-    // scheduler.addSensor(h1);
-    // scheduler.addSensor(&s2);
-
-    // scheduler.simulation(4);
+    scheduler.simulation(10);
     
     return 0;
+
+
+    //     cout << "test Début" << endl;
+    //     thread thr(update);
+    //     // thread thr2(update);
+    //     thr.detach();
+    //     // thr2.join();
+
+
+    //     cout << "test Fin" << endl;
+                
+    //     this_thread::sleep_for(chrono::milliseconds(5000));
 }
 
-
-
-
-
-//// Pour faire des fonctions async
-
-// #include <iostream>
-// #include <thread>
-// #include <chrono> 
-
-// using namespace std;
-
-
-// void f()
-// {
-
-//     cout << "Local test" << endl;
-// }
-
-
-// void update()
-// {
-
-//     auto duree = chrono::seconds(5); // la variable à transmettre dans l'appelle de de la fonction update
-
-//     // 2. Enregistrer l'instant de départ
-//     auto debut = chrono::steady_clock::now();
-
-//     // 3. Boucler pendant la période impartie
-//     while (chrono::steady_clock::now() - debut < duree) {
-        
-//         // Votre code à exécuter en boucle
-//         f();
-
-        
-//         this_thread::sleep_for(chrono::milliseconds(1000)); // remplacer 1000 par le temps d'activation propre au capteur
-//     }
-
-// }
-
-
-// int main()
-// {
-
-//     cout << "test Début" << endl;
-//     thread thr(update);
-//     // thread thr2(update);
-//     thr.detach();
-//     // thr2.join();
-
-
-//     cout << "test Fin" << endl;
-            
-//     this_thread::sleep_for(chrono::milliseconds(5000));
-// }

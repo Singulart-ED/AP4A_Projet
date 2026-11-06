@@ -2,45 +2,45 @@
 #define PROJET_TP_SCHEDULER_H
 
 #include <vector>
-#include "Sensor.hpp"
+#include "SensorBase.hpp"
 
-template <typename T>
 class Scheduler {
 protected:
-    std::vector<Sensor<T>*> arrayV;
+    std::vector<SensorBase*> arrayV;
 
 public:
+
     Scheduler() {}
 
-    Scheduler(const Scheduler<T>& s) {
-        for (Sensor<T>* sensor : s.arrayV) {
+    Scheduler(const Scheduler& s) {
+        for (SensorBase* sensor : s.arrayV) {
             this->arrayV.push_back(sensor);
         }
     }
 
-    ~Scheduler() {
-        arrayV.clear();
-    }
+    ~Scheduler() {}
 
-    Scheduler<T>& operator=(const Scheduler<T>& s) {
+    Scheduler& operator=(const Scheduler& s) {
         if (this != &s) {
             this->arrayV.clear();
-            for (Sensor<T>* sensor : s.arrayV) {
+
+            for (SensorBase* sensor : s.arrayV) {
                 this->arrayV.push_back(sensor);
             }
         }
+
         return *this;
     }
 
     void simulation(int t) {
-        for (Sensor<T>* sensor : arrayV) {
+        for (SensorBase* sensor : arrayV) {
             if (sensor != nullptr) {
                 sensor->update(t);
             }
         }
     }
 
-    void addSensor(Sensor<T>* s) {
+    void addSensor(SensorBase* s) {
         if (s != nullptr) {
             this->arrayV.push_back(s);
         }

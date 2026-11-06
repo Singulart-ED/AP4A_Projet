@@ -4,6 +4,7 @@
 #include <iostream>
 #include <chrono> 
 #include <thread>
+#include "SensorBase.hpp"
 
 
 
@@ -11,7 +12,7 @@ using namespace std;
 
 
 template <typename V>
-Sensor<V>::Sensor(int period, Server* ptrServer)
+Sensor<V>::Sensor(int period, Server* ptrServer) : SensorBase()
 {
     value = V{};
     m_ptrServer = ptrServer;
@@ -71,18 +72,6 @@ void Sensor<V>::update(int t)
 
 }
 
-
-// template <typename V>
-// void Sensor<V>::execute()
-// {
-//     srand(time(0));
-    
-//     value = static_cast<V>(std::rand() % 101);
-
-//     std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;
-//     m_ptrServer->consoleWrite();
-    
-// }
 
 
 template class Sensor<int>;
