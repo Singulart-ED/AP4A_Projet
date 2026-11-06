@@ -26,12 +26,16 @@ void Sound::execute() {
 
     srand(time(0));
     
-    value = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/100));
+    value = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/140));
 
     // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 
-    m_ptrServer->consoleWrite();
-
+    m_ptrServer->consoleWrite(
+        std::numeric_limits<int>::quiet_NaN(), // Temp
+        2, // Light
+        std::numeric_limits<float>::quiet_NaN(), // Hum
+        value  // Son
+    );
 }
 
 

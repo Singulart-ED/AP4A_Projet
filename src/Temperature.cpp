@@ -27,13 +27,19 @@ Temperature & Temperature::operator=(const Temperature& t) {
 void Temperature::execute() {
     srand(time(0));
     
-    value = static_cast <int> (rand()) / (static_cast <int> (RAND_MAX/100));
-
+    value = static_cast <int> (rand()) / (static_cast <int> (RAND_MAX/39));
+    value += 1;
     // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 
-    m_ptrServer->consoleWrite();
+    m_ptrServer->consoleWrite(
+        value, // Temp
+        2, // Light
+        std::numeric_limits<float>::quiet_NaN(), // Hum
+        std::numeric_limits<float>::quiet_NaN()  // Son
+    );
 
 }
 // int getVal() {
 //     return value;
 // }
+

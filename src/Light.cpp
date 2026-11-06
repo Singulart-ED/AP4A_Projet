@@ -30,7 +30,13 @@ void Light::execute() {
 
     // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 
-    m_ptrServer->consoleWrite();
+    m_ptrServer->consoleWrite(
+        std::numeric_limits<int>::quiet_NaN(), // Temp
+        value, // Light
+        std::numeric_limits<float>::quiet_NaN(), // Hum
+        std::numeric_limits<float>::quiet_NaN()  // Son
+    );
+
 
 }
 
