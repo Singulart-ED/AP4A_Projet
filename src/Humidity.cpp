@@ -9,9 +9,7 @@ Humidity::Humidity(int period, Server* ptrServer) : Sensor<float>(period, ptrSer
     m_type = "Humidity";
 }
 
-Humidity::Humidity(const Humidity& h) : Sensor<float>(h) {
- // à faire
-}
+Humidity::Humidity(const Humidity& h) : Sensor<float>(h) {}
 
 
 Humidity::~Humidity() {}
@@ -29,8 +27,6 @@ void Humidity::execute() {
     srand(time(0));
     
     value = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/100));
-
-    // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 
     m_ptrServer->consoleWrite(
         std::numeric_limits<int>::quiet_NaN(), // Temp

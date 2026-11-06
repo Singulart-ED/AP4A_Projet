@@ -3,7 +3,7 @@
 
 class SensorBase {
     public:
-        virtual ~SensorBase() = default;
+        virtual ~SensorBase() {};
 
         virtual void update(int t) = 0;
         virtual void execute() = 0;

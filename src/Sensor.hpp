@@ -1,10 +1,10 @@
 #ifndef PROJET_TP_SENSOR_H
 #define PROJET_TP_SENSOR_H
 
- 
 #include <iostream>
 #include <string>
 #include <ctime>
+
 #include "SensorBase.hpp"
 
 class Server;

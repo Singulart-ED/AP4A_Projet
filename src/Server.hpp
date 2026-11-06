@@ -15,8 +15,6 @@ class Server{
         ~Server();
         Server& operator=(const Server& b); 
 
-        // void consoleWrite();
-
         void consoleWrite(  
             int temperature=std::numeric_limits<int>::quiet_NaN(), 
             int light=std::numeric_limits<int>::quiet_NaN(), 
