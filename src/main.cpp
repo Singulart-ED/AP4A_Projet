@@ -20,15 +20,18 @@ int main() {
     Server test;
 
     Humidity h1(1000, &test); //temps en milliseconde
-    Light l1(1000, &test); //temps en milliseconde
-    Sound s1(1000, &test); //temps en milliseconde
+    Light l1(2000, &test); //temps en milliseconde
+    Sound s1(500, &test); //temps en milliseconde
     Temperature t1(1000, &test); //temps en milliseconde
-    h1.execute();
-    l1.execute();
-    s1.execute();
-    t1.execute();
+    // h1.execute();
+    // l1.execute();
+    // s1.execute();
+    // t1.execute();
  
-    // h1.update(5);
+    h1.update(2); // METTRE LE THREAD EN PARALLELE
+    l1.update(2);
+    s1.update(2);
+    t1.update(2);
 
     // Sensor<int> s1(1000, &test); //temps en milliseconde
     // Sensor<int> s2(2000, &test); //temps en milliseconde

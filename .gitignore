@@ -2,3 +2,7 @@ build/
 .vscode/
 .vscode/settings.json
 image/
+humidity.log
+light.log
+sound.log
+temperature.log

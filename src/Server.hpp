@@ -24,7 +24,10 @@ class Server{
             float son=std::numeric_limits<double>::quiet_NaN()
         );
 
-        // void fileWrite(Temperature temperature, Light light, Humidity humidite, Sound son);
+        void fileWrite(Temperature* temperature);
+        void fileWrite(Light* light);
+        void fileWrite(Humidity* humidite);
+        void fileWrite(Sound* son);
     };
 
 #endif // SERVER_H

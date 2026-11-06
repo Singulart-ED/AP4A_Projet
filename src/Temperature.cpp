@@ -38,8 +38,10 @@ void Temperature::execute() {
         std::numeric_limits<float>::quiet_NaN()  // Son
     );
 
+    m_ptrServer->fileWrite(this);
 }
-// int getVal() {
-//     return value;
-// }
+
+int Temperature::getVal() {
+    return value;
+}
 

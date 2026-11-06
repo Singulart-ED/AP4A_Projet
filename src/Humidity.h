@@ -18,7 +18,7 @@ class Humidity : public Sensor<float> {
 
         void execute() override;
 
-        // float getVal();
+        float getVal();
 };
 
 #endif //PROJET_TP_HUMIDITY_H

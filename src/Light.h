@@ -18,7 +18,7 @@ public:
 
     void execute() override;
 
-    // bool getVal();
+    bool getVal();
 };
 
 #endif //PROJET_TP_LIGHT_H
