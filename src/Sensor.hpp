@@ -5,13 +5,12 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-
-// #include "Server.hpp"
+#include "SensorBase.hpp"
 
 class Server;
 
 template <typename V>
-class Sensor{
+class Sensor : public SensorBase {
 
     protected:
         int id;
@@ -23,17 +22,15 @@ class Sensor{
     public:
         static int m_id;
 
-        // Sensor();
         Sensor(int period=0, Server* ptrServer=nullptr);
         Sensor(const Sensor& s);
         virtual ~Sensor();
 
         Sensor& operator=(const Sensor& b); 
-        void update(int t); // appelle execute
+        void update(int t) override;
 
 
-        void virtual execute() = 0; // à définir dans chaque classe fille et envoyer les données via un paramètre 
-        // void execute(); // Pour tester
+        void virtual execute() override = 0;
 
         int getId() const { return id; }
         std::string getType() const { return m_type; }
