@@ -9,7 +9,7 @@ add_executable(PROJET_TP
     src/main.cpp
     src/Server.cpp
     src/Sensor.cpp
-    src/Scheduler.cpp
+    src/Scheduler.h
     src/Humidity.cpp
     src/Light.cpp
     src/Sound.cpp

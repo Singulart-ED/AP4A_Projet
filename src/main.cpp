@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+
 #include "Server.hpp"
 #include "Sensor.hpp"
 #include "Scheduler.h"
@@ -30,20 +30,8 @@ int main() {
     scheduler.addSensor(&s1);
     scheduler.addSensor(&t1);
 
-    scheduler.simulation(10);
+    scheduler.simulation(6); // Temps durant lequel les capteurs se mettent à jour
     
     return 0;
 
-
-    //     cout << "test Début" << endl;
-    //     thread thr(update);
-    //     // thread thr2(update);
-    //     thr.detach();
-    //     // thr2.join();
-
-
-    //     cout << "test Fin" << endl;
-                
-    //     this_thread::sleep_for(chrono::milliseconds(5000));
 }
-

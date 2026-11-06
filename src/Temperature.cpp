@@ -1,7 +1,6 @@
 
 #include <cstdlib>
 #include <iostream>
-#include <bits/locale_facets_nonio.h>
 
 #include "Server.hpp"
 #include "Temperature.h"
@@ -22,14 +21,11 @@ Temperature & Temperature::operator=(const Temperature& t) {
     return *this;
 }
 
-
-
 void Temperature::execute() {
     srand(time(0));
     
     value = static_cast <int> (rand()) / (static_cast <int> (RAND_MAX/39));
     value += 1;
-    // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 
     m_ptrServer->consoleWrite(
         value, // Temp
