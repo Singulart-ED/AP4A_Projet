@@ -49,7 +49,7 @@ void Server::consoleWrite()
 //     cout << "Humidite    : " << humidite.getVal() << " %" << endl;
 //     cout << "Son         : " << son.getVal() << " dB" << endl;
 //     cout << "-----------------------------------" << endl;
-// // }
+// }
 
 // void Server::fileWrite(Temperature temperature, Light light, Humidity humidite, Sound son)
 // {

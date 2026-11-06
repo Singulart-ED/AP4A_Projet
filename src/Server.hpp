@@ -3,7 +3,7 @@
 
 // #include "Temperature.h"
 // #include "Sound.h"
-// #include "Humidity.h"
+#include "Humidity.h"
 // #include "Light.h"
 
 class Server{

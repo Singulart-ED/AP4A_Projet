@@ -10,17 +10,6 @@
 using namespace std;
 
 
-// template <typename V>
-// Sensor<V>::Sensor()
-// {
-//     value = V{};
-//     m_ptrServer = nullptr;
-//     m_period = 0;
-//     m_type = "";
-// }
-
-
-
 template <typename V>
 Sensor<V>::Sensor(int period, Server* ptrServer)
 {
@@ -37,15 +26,15 @@ Sensor<V>::Sensor(const Sensor &s)
     value = s.value;
     m_period = s.m_period;
     m_type = s.m_type;
-    m_ptrServer = new Server;
-    *m_ptrServer = *s.m_ptrServer;
+    m_ptrServer = s.m_ptrServer; // à vérifier !!!!!!!!!!!!!!
+    // *m_ptrServer = *s.m_ptrServer;
 }
 
 template <typename V>
 Sensor<V>::~Sensor()
 {
-    delete m_ptrServer;
-    m_ptrServer = nullptr;
+    // delete m_ptrServer;
+    // m_ptrServer = nullptr;
 }
 
 template <typename V>
@@ -59,20 +48,6 @@ Sensor<V>& Sensor<V>::operator=(const Sensor<V> &b)
 
     return *this;
 }
-
-
-
-// template <typename V>
-// void Sensor<V>::update(time_t t)
-// {
-
-//     if (t - timestamp >= m_period)
-//     {
-//         execute();
-//         timestamp = t;
-//     }
-
-// }
 
 
 template <typename V>
@@ -97,19 +72,20 @@ void Sensor<V>::update(int t)
 }
 
 
-template <typename V>
-void Sensor<V>::execute()
-{
-    srand(time(0));
+// template <typename V>
+// void Sensor<V>::execute()
+// {
+//     srand(time(0));
     
-    value = static_cast<V>(std::rand() % 101);
+//     value = static_cast<V>(std::rand() % 101);
 
-    std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;
-    m_ptrServer->consoleWrite();
+//     std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;
+//     m_ptrServer->consoleWrite();
     
-}
+// }
 
 
 template class Sensor<int>;
 template class Sensor<float>;
+template class Sensor<double>;
 template class Sensor<bool>;

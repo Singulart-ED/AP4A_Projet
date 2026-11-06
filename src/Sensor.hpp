@@ -5,15 +5,16 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-#include "Server.hpp"
 
+// #include "Server.hpp"
+
+class Server;
 
 template <typename V>
 class Sensor{
 
     protected:
         int id;
-        std::string type;
         V value;
         Server* m_ptrServer;
         time_t m_period;
@@ -31,12 +32,11 @@ class Sensor{
         void update(int t); // appelle execute
 
 
-        // void virtual execute() = 0; // à définir dans chaque classe fille et envoyer les données via un paramètre 
-        void execute(); // Pour tester
-        //////////////////////////
+        void virtual execute() = 0; // à définir dans chaque classe fille et envoyer les données via un paramètre 
+        // void execute(); // Pour tester
 
         int getId() const { return id; }
-        std::string getType() const { return type; }
+        std::string getType() const { return m_type; }
 };
 
 template <typename V>

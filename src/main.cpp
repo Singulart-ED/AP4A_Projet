@@ -5,6 +5,7 @@
 #include "Server.hpp"
 #include "Sensor.hpp"
 #include "Scheduler.h"
+#include "Humidity.h"
 
 using namespace std;
 
@@ -13,29 +14,21 @@ int main() {
 
     Scheduler<int> scheduler;
 
-
-
-
     Server test;
-    // Server test3(test);
-
-    // test.consoleWrite();
 
     cout << &test << endl;
 
-    Sensor<int> s;
-    // s.execute();
+    Humidity h1(1000, &test); //temps en milliseconde
+    // h1.execute();
+    h1.update(5);
 
-    Sensor<int> s2(1000, &test); //temps en milliseconde
+    // Sensor<int> s1(1000, &test); //temps en milliseconde
+    // Sensor<int> s2(2000, &test); //temps en milliseconde
 
-    scheduler.addSensor(&s2);
+    // scheduler.addSensor(&s1);
+    // scheduler.addSensor(&s2);
 
-    scheduler.simulation(4);
-
-    // s2.update(2);
- 
-    // Sensor<float> s3(2000); //temps en milliseconde
-    // s3.update(4);
+    // scheduler.simulation(4);
     
     return 0;
 }
@@ -44,7 +37,7 @@ int main() {
 
 
 
-
+//// Pour faire des fonctions async
 
 // #include <iostream>
 // #include <thread>
