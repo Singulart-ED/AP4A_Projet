@@ -17,7 +17,7 @@ class Sound : public Sensor<float>{
 
         void execute() override;
 
-        // float getVal();
+        float getVal();
 };
 
 

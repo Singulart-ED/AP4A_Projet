@@ -37,9 +37,10 @@ void Light::execute() {
         std::numeric_limits<float>::quiet_NaN()  // Son
     );
 
+    m_ptrServer->fileWrite(this);
 
 }
 
-// bool getVal() {
-//     return value;
-// }
+bool Light::getVal() {
+    return value;
+}

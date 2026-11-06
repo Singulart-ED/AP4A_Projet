@@ -17,7 +17,7 @@ class Temperature : public Sensor<int>{
 
         void execute() override;
 
-        // int getVal();
+        int getVal();
 };
 
 

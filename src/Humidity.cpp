@@ -39,12 +39,11 @@ void Humidity::execute() {
         std::numeric_limits<float>::quiet_NaN()  // Son
     );
 
+    m_ptrServer->fileWrite(this);
 
 }
 
 
-// float getVal() {
-//     // return m_type;
-//     // return value; // à modifier
-//     return 0; // à modifier
-// }
+float Humidity::getVal() {
+    return 0;
+}

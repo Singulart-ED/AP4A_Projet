@@ -36,9 +36,12 @@ void Sound::execute() {
         std::numeric_limits<float>::quiet_NaN(), // Hum
         value  // Son
     );
+
+    m_ptrServer->fileWrite(this);
+
 }
 
 
-// float getVal() {
-//     return value;
-// }
+float Sound::getVal() {
+    return value;
+}
