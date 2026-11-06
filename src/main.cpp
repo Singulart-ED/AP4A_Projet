@@ -75,8 +75,8 @@ void update()
         // Votre code à exécuter en boucle
         f();
 
-        // Optionnel : faire une petite pause pour ne pas saturer le processeur
-        this_thread::sleep_for(chrono::milliseconds(500)); // remplacer 1000 par le temps d'activation propre au capteur
+        
+        this_thread::sleep_for(chrono::milliseconds(1000)); // remplacer 1000 par le temps d'activation propre au capteur
     }
 
 }
@@ -87,7 +87,12 @@ int main()
 
     cout << "test Début" << endl;
     thread thr(update);
-    thr.join();
-    cout << "test Fin" << endl;
+    // thread thr2(update);
+    thr.detach();
+    // thr2.join();
 
+
+    cout << "test Fin" << endl;
+            
+    this_thread::sleep_for(chrono::milliseconds(5000));
 }
