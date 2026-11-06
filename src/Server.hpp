@@ -1,10 +1,10 @@
 #ifndef SERVER_H
 #define SERVER_H
 
-// #include "Temperature.h"
-// #include "Sound.h"
+#include "Temperature.h"
+#include "Sound.h"
 #include "Humidity.h"
-// #include "Light.h"
+#include "Light.h"
 
 class Server{
     public:

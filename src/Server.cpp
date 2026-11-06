@@ -1,8 +1,9 @@
 #include "Server.hpp"
-// #include "Temperature.h"
-// #include "Light.h"
-// #include "Humidity.h"
-// #include "Sound.h"
+#include "Temperature.h"
+#include "Light.h"
+#include "Humidity.h"
+#include "Sound.h"
+
 
 #include <iostream>
 #include <string>
