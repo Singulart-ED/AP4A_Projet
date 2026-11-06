@@ -11,13 +11,7 @@ add_executable(PROJET_TP
     src/Sensor.cpp
     src/Scheduler.cpp
     src/Humidity.cpp
-
+    src/Light.cpp
+    src/Sound.cpp
+    src/Temperature.cpp
 )
-
-
-
-
-    # src/Humidity.cpp
-    # src/Light.cpp
-    # src/Sound.cpp
-    # src/Temperature.cpp

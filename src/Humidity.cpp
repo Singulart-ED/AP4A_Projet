@@ -37,8 +37,8 @@ void Humidity::execute() {
 }
 
 
-float getVal() {
-    // return m_type;
-    // return value; // à modifier
-    return 0; // à modifier
-}
+// float getVal() {
+//     // return m_type;
+//     // return value; // à modifier
+//     return 0; // à modifier
+// }

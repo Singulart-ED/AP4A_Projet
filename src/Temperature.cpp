@@ -1,15 +1,17 @@
-//
-// Created by Yann on 19/10/2026.
-//
 
-#include "Temperature.h"
 #include <cstdlib>
 #include <iostream>
 #include <bits/locale_facets_nonio.h>
 
-Temperature::Temperature() : Sensor<int>() {
+#include "Server.hpp"
+#include "Temperature.h"
+
+
+Temperature::Temperature(int period, Server* ptrServer) : Sensor<int>(period, ptrServer) {
     m_type = "Temperature";
 }
+
+Temperature::Temperature(const Temperature& t) : Sensor<int>(t) {}
 
 Temperature::~Temperature() {}
 
@@ -20,21 +22,18 @@ Temperature & Temperature::operator=(const Temperature& t) {
     return *this;
 }
 
-Temperature::Temperature(const Temperature& t) : Sensor<int>(t) {}
-
-void Temperature::update(time_t t) {
-    if (t - timestamp >= m_period) {
-        value = std::rand() % 40;
-        execute();
-        timestamp = t;
-    }
-}
 
 
 void Temperature::execute() {
-    std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
-}
+    srand(time(0));
+    
+    value = static_cast <int> (rand()) / (static_cast <int> (RAND_MAX/100));
 
-int getVal() {
-    return value;
+    // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
+
+    m_ptrServer->consoleWrite();
+
 }
+// int getVal() {
+//     return value;
+// }

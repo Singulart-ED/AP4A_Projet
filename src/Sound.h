@@ -1,22 +1,23 @@
-//
-// Created by Yann on 19/10/2026.
-//
-
 #ifndef PROJET_TP_SOUND_H
 #define PROJET_TP_SOUND_H
+
+#include <chrono> 
+
 #include "Sensor.hpp"
 
+class Server;
+
 class Sound : public Sensor<float>{
-public:
-    Sound();
-    ~Sound();
-    Sound & operator=(const Sound& s);
-    Sound(const Sound& s);
+    public:
+        Sound(int period=0, Server* ptrServer=nullptr);
+        Sound(const Sound& s);
 
-    void update(time_t t); // appelle execute
-    void execute();
+        ~Sound();
+        Sound & operator=(const Sound& s);
 
-    float getVal();
+        void execute() override;
+
+        // float getVal();
 };
 
 

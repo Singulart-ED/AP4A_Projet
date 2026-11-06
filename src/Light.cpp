@@ -1,14 +1,16 @@
-//
-// Created by Yann on 19/10/2026.
-//
-
-#include "Light.h"
 #include <cstdlib>
 #include <iostream>
 
-Light::Light() : Sensor<bool>() {
+#include "Light.h"
+#include "Server.hpp"
+
+
+Light::Light(int period, Server* ptrServer) : Sensor<bool>(period, ptrServer) {
     m_type = "Light";
 }
+
+Light::Light(const Light& l) : Sensor<bool>(l) {}
+
 
 Light::~Light() {}
 
@@ -19,20 +21,19 @@ Light& Light::operator=(const Light& l) {
     return *this;
 }
 
-Light::Light(const Light& l) : Sensor<bool>(l) {}
-
-void Light::update(time_t t) {
-    if (t - timestamp >= m_period) {
-        value = static_cast<bool>(std::rand() % 2);
-        execute();
-        timestamp = t;
-    }
-}
 
 void Light::execute() {
-    std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
+
+    srand(time(0));
+    
+    value = static_cast <bool> (rand()); // à MODIFIER
+
+    // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
+
+    m_ptrServer->consoleWrite();
+
 }
 
-bool getVal() {
-    return value;
-}
+// bool getVal() {
+//     return value;
+// }
