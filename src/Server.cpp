@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cmath>
 
 using namespace std;
 
@@ -35,22 +36,23 @@ Server& Server::operator=(const Server& b)
     return *this;
 }
 
-void Server::consoleWrite()
-{
-    cout << "--- Donnees recues des capteurs ---" << endl;
-
-    cout << "-----------------------------------" << endl;
-}
-
-// void Server::consoleWrite(Temperature temperature, Light light, Humidity humidite, Sound son)
+// void Server::consoleWrite()
 // {
 //     cout << "--- Donnees recues des capteurs ---" << endl;
-//     cout << "Temperature : " << temperature.getVal() << " °C" << endl;
-//     cout << "Luminosite  : " << (light.getVal() ? "Allume (1)" : "Eteint (0)") << endl;
-//     cout << "Humidite    : " << humidite.getVal() << " %" << endl;
-//     cout << "Son         : " << son.getVal() << " dB" << endl;
+
 //     cout << "-----------------------------------" << endl;
 // }
+
+
+void Server::consoleWrite(int temperature, int light, float humidite, float son)
+{
+    cout << "--- Donnees recues des capteurs ---" << endl;
+    if (temperature > 0 && temperature < 41) cout << "Temperature : " << temperature << " °C" << endl;
+    if (light == 0 || light == 1)  cout << "Luminosite  : " << (light ? "Allume (1)" : "Eteint (0)") << endl;
+    if (!std::isnan(humidite)) cout << "Humidite    : " << humidite << " %" << endl;
+    if (!std::isnan(son)) cout << "Son         : " << son << " dB" << endl;
+    cout << "-----------------------------------" << endl;
+}
 
 // void Server::fileWrite(Temperature temperature, Light light, Humidity humidite, Sound son)
 // {

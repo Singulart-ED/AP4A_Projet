@@ -19,8 +19,6 @@ int main() {
 
     Server test;
 
-    // cout << &test << endl;
-
     Humidity h1(1000, &test); //temps en milliseconde
     Light l1(1000, &test); //temps en milliseconde
     Sound s1(1000, &test); //temps en milliseconde

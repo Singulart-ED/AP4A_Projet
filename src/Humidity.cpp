@@ -32,7 +32,13 @@ void Humidity::execute() {
 
     // std::cout << "Capteur " << m_id << " (" << m_type << ") : valeur = " << value << std::endl;
 
-    m_ptrServer->consoleWrite();
+    m_ptrServer->consoleWrite(
+        std::numeric_limits<int>::quiet_NaN(), // Temp
+        2, // Light
+        value, // Hum
+        std::numeric_limits<float>::quiet_NaN()  // Son
+    );
+
 
 }
 
