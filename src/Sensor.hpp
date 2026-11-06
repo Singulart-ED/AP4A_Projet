@@ -24,7 +24,7 @@ class Sensor{
         static int m_id;
 
         Sensor();
-        Sensor(&ptrServer, int period);
+        Sensor(time_t period=0);
         Sensor(const Sensor& s);
         virtual ~Sensor();
 

@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <iostream>
 
+
+
 using namespace std;
 
 
@@ -16,12 +18,14 @@ Sensor<V>::Sensor()
     m_type = "";
 }
 
+
+
 template <typename V>
-Sensor<V>::Sensor(&ptrServer=nullptr, int period=0)
+Sensor<V>::Sensor(time_t period)
 {
     value = V{};
-    m_ptrServer = ptrServer;
-    timestamp = 0;
+    m_ptrServer = nullptr;
+    timestamp = 1;
     m_period = period;
     m_type = "";
 }
@@ -81,7 +85,6 @@ void Sensor<V>::execute()
 
     std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;
     
-
 }
 
 
