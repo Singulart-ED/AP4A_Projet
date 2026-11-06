@@ -2,30 +2,30 @@
 #include "Server.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <chrono> 
+#include <thread>
 
 
 
 using namespace std;
 
 
-template <typename V>
-Sensor<V>::Sensor()
-{
-    value = V{};
-    m_ptrServer = nullptr;
-    timestamp = 0;
-    m_period = 0;
-    m_type = "";
-}
+// template <typename V>
+// Sensor<V>::Sensor()
+// {
+//     value = V{};
+//     m_ptrServer = nullptr;
+//     m_period = 0;
+//     m_type = "";
+// }
 
 
 
 template <typename V>
-Sensor<V>::Sensor(time_t period)
+Sensor<V>::Sensor(int period)
 {
     value = V{};
     m_ptrServer = nullptr;
-    timestamp = 1;
     m_period = period;
     m_type = "";
 }
@@ -35,7 +35,6 @@ template <typename V>
 Sensor<V>::Sensor(const Sensor &s)
 {
     value = s.value;
-    timestamp = s.timestamp;
     m_period = s.m_period;
     m_type = s.m_type;
     m_ptrServer = new Server;
@@ -63,14 +62,36 @@ Sensor<V>& Sensor<V>::operator=(const Sensor<V> &b)
 
 
 
+// template <typename V>
+// void Sensor<V>::update(time_t t)
+// {
+
+//     if (t - timestamp >= m_period)
+//     {
+//         execute();
+//         timestamp = t;
+//     }
+
+// }
+
+
 template <typename V>
-void Sensor<V>::update(time_t t)
+void Sensor<V>::update(int t)
 {
 
-    if (t - timestamp >= m_period)
-    {
+    auto duree = chrono::seconds(t); // la variable à transmettre dans l'appelle de de la fonction update
+
+    // 2. Enregistrer l'instant de départ
+    auto debut = chrono::steady_clock::now();
+
+    // 3. Boucler pendant la période impartie
+    while (chrono::steady_clock::now() - debut < duree) {
+        
+        // Votre code à exécuter en boucle
         execute();
-        timestamp = t;
+
+        
+        this_thread::sleep_for(chrono::milliseconds(m_period)); // remplacer 1000 par le temps d'activation propre au capteur
     }
 
 }
