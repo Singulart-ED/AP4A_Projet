@@ -14,6 +14,8 @@ class Server{
         ~Server();
         Server& operator=(const Server& b); 
 
+        void consoleWrite();
+
         // void consoleWrite(Temperature temperature, Light light, Humidity humidite, Sound son);
         // void fileWrite(Temperature temperature, Light light, Humidity humidite, Sound son);
 };

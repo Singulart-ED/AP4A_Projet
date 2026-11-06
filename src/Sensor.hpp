@@ -23,7 +23,7 @@ class Sensor{
         static int m_id;
 
         // Sensor();
-        Sensor(int period=0);
+        Sensor(int period=0, Server* ptrServer=nullptr);
         Sensor(const Sensor& s);
         virtual ~Sensor();
 

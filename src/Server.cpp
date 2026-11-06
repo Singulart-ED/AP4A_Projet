@@ -34,6 +34,13 @@ Server& Server::operator=(const Server& b)
     return *this;
 }
 
+void Server::consoleWrite()
+{
+    cout << "--- Donnees recues des capteurs ---" << endl;
+
+    cout << "-----------------------------------" << endl;
+}
+
 // void Server::consoleWrite(Temperature temperature, Light light, Humidity humidite, Sound son)
 // {
 //     cout << "--- Donnees recues des capteurs ---" << endl;

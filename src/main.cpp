@@ -2,37 +2,40 @@
 #include <iostream>
 #include <string>
 #include <vector> //Pour les tableaus dynamiques
-// #include <fstream> // Pour les écrire dans les fichiers
 #include "Server.hpp"
 #include "Sensor.hpp"
+#include "Scheduler.h"
 
 using namespace std;
 
 
 int main() {
-    // Scheduler scheduler;
-    // while (1) {
-    //     scheduler.simuation();
-    // }
-// }
+
+    Scheduler<int> scheduler;
+
+
 
 
     Server test;
-    Server test3(test);
-
-    // Server test2 = test;
+    // Server test3(test);
 
     // test.consoleWrite();
-    // test2.consoleWrite();
-    // test3.consoleWrite();
+
+    cout << &test << endl;
 
     Sensor<int> s;
-    s.execute();
+    // s.execute();
 
-    Sensor<int> s2(4000); //temps en milliseconde
-    // s2.execute();
-    s2.update(10);
+    Sensor<int> s2(1000, &test); //temps en milliseconde
+
+    scheduler.addSensor(&s2);
+
+    scheduler.simulation(4);
+
+    // s2.update(2);
  
+    // Sensor<float> s3(2000); //temps en milliseconde
+    // s3.update(4);
     
     return 0;
 }

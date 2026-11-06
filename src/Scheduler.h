@@ -36,10 +36,10 @@ public:
         return *this;
     }
 
-    void simulation() {
+    void simulation(int t) {
         for (Sensor<T>* sensor : arrayV) {
             if (sensor != nullptr) {
-                sensor->update();
+                sensor->update(t);
             }
         }
     }

@@ -22,10 +22,10 @@ using namespace std;
 
 
 template <typename V>
-Sensor<V>::Sensor(int period)
+Sensor<V>::Sensor(int period, Server* ptrServer)
 {
     value = V{};
-    m_ptrServer = nullptr;
+    m_ptrServer = ptrServer;
     m_period = period;
     m_type = "";
 }
@@ -105,6 +105,7 @@ void Sensor<V>::execute()
     value = static_cast<V>(std::rand() % 101);
 
     std::cout << "Capteur " << m_id << " : valeur = " << value << std::endl;
+    m_ptrServer->consoleWrite();
     
 }
 
